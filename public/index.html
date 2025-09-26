@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=640,initial-scale=1" />
+  <meta name="theme-color" content="#222" />
+  <title>PC Emulator - Welcome</title>
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: #fff;
+      font-family: 'Segoe UI', 'Arial', monospace;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .center {
+      margin: auto;
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 400px;
+      background: #181825;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px #0008;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5em;
+    }
+    .desc {
+      font-size: 1.1rem;
+      margin-bottom: 2em;
+      color: #bbb;
+    }
+    .start-btn {
+      background: #22c55e;
+      color: #111;
+      border: none;
+      padding: 16px 36px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+    .start-btn:hover {
+      background: #16a34a;
+    }
+    .footer {
+      color: #666;
+      font-size: 0.9em;
+      text-align: center;
+      margin: 24px 0 0 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="center" id="landing">
+    <h1>🖥️ PC Emulator</h1>
+    <div class="desc">
+      Welcome to the PC Emulator!<br>
+      Experience a retro-style computer emulator in your browser.<br>
+      <br>
+      <em>Powered by React</em>
+    </div>
+    <button class="start-btn" onclick="startApp()">Start Emulator</button>
+    <div class="footer">
+      &copy; 2025 <a href="https://github.com/jdotwashere" style="color:#fff;text-decoration:underline;">jdotwashere</a>
+    </div>
+  </div>
+  <div id="root" style="display:none;"></div>
+  <script>
+    function startApp() {
+      document.getElementById('landing').style.display = 'none';
+      document.getElementById('root').style.display = 'block';
+      // Dynamically insert React app script
+      var script = document.createElement('script');
+      script.src = '%PUBLIC_URL%/static/js/bundle.js';
+      document.body.appendChild(script);
+    }
+  </script>
+</body>
+</html>
